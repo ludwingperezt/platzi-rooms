@@ -33,6 +33,7 @@
     <footer-partial></footer-partial>
 
     <!-- Modales -->
+    <!-- Login -->
     <modal :show="modals.login" @close-modal="closeModal">
       <h2 class="text-grey-darkest font-semibold text-center mb-6">
         Welcome to Platzi Rooms
@@ -55,6 +56,31 @@
         </div>
       </form>
     </modal>
+
+    <!-- Registro -->
+    <modal :show="modals.register" @close-modal="closeModalRegister">
+      <h2 class="text-grey-darkest font-semibold text-center mb-6">
+        Sign up in Platzi Rooms
+      </h2>
+      <form>
+        <div class="mb-4">
+          <label class="input__label">Email</label>
+          <div class="form_field relative">
+            <input class="input__field" type="text" placeholder="bruce.wayne@imnotbatman.org">
+          </div>
+        </div>
+        <div class="mb-4">
+          <label class="input__label">Password</label>
+          <div class="form_field relative">
+            <input class="input__field" type="password" placeholder="*********">
+          </div>
+        </div>
+        <div class="mb-4">
+          <button class="btn btn-primary mr-3 w-full">Sign up!</button>
+        </div>
+      </form>
+    </modal>
+
   </div>
 </template>
 
@@ -81,6 +107,12 @@ export default {
     closeModal() {
       this.$store.dispatch('TOGGLE_MODAL_STATE', {
         name: 'login',
+        value: false,
+      });
+    },
+    closeModalRegister() {
+      this.$store.dispatch('TOGGLE_MODAL_STATE', {
+        name: 'register',
         value: false,
       });
     },
