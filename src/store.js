@@ -27,5 +27,6 @@ export default new Vuex.Store({
   getters: {
     modals: state => state.modals,
     authUser: state => state.users[state.authId],
+    rooms: state => state.rooms,
   },
 });
