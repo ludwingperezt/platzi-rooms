@@ -65,24 +65,42 @@
 
     <!-- Registro -->
     <modal :show="modals.register" @close-modal="closeModalRegister">
-      <h2 class="text-grey-darkest font-semibold text-center mb-6">
-        Sign up in Platzi Rooms
-      </h2>
-      <form>
+      <form class="form">
         <div class="mb-4">
-          <label class="input__label">Email</label>
-          <div class="form_field relative">
-            <input class="input__field" type="text" placeholder="bruce.wayne@imnotbatman.org">
+          <label class="input__label" for="email">Email</label>
+          <div class="form__field relative">
+            <input
+              class="input__field"
+              id="email"
+              v-model="formRegister.email"
+              type="email"
+              placeholder="bruce.wayne@imnotbatman.org">
           </div>
         </div>
         <div class="mb-4">
-          <label class="input__label">Password</label>
-          <div class="form_field relative">
-            <input class="input__field" type="password" placeholder="*********">
+          <label class="input__label" for="email">Name</label>
+          <div class="form__field relative">
+            <input
+              class="input__field"
+              id="name"
+              v-model="formRegister.name"
+              type="text"
+              placeholder="Bruce Wayne">
           </div>
         </div>
         <div class="mb-4">
-          <button class="btn btn-primary mr-3 w-full">Sign up!</button>
+          <label class="input__label" for="password">Password</label>
+          <div class="form__field relative">
+            <input
+              class="input__field"
+              id="password"
+              v-model="formRegister.password"
+              type="password"
+              placeholder="Create a Password">
+          </div>
+        </div>
+        <div class="mb-4">
+          <button class="btn w-full">Create account</button>
         </div>
       </form>
     </modal>
@@ -106,6 +124,11 @@ export default {
         email: '',
         password: '',
         rememberMe: false,
+      },
+      formRegister: {
+        email: '',
+        name: '',
+        password: '',
       },
     };
   },
