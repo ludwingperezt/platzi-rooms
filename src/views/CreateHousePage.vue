@@ -71,7 +71,9 @@ export default {
         publishedAt: Date.now(),
       };
 
-      this.$store.dispatch('CREATE_ROOM', room);
+      this.$store.dispatch('CREATE_ROOM', room).then(() => {
+        this.$router.push({ name: 'SearchPage' });
+      });
     },
   },
 };
